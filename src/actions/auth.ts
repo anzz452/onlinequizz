@@ -54,16 +54,17 @@ export async function loginAction(
     });
 
     return { success: true };
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Login action error:", error);
-    const msg = error?.message || "";
+    const err = error instanceof Error ? error : undefined;
+    const msg = err?.message || "";
     if (msg.includes("DATABASE_URL") || msg.includes("DIRECT_URL") || msg.includes("Environment variable not found")) {
       return { error: "Database configuration error: Missing DATABASE_URL or DIRECT_URL in Vercel Environment Variables." };
     }
     if (msg.includes("Can't reach database server")) {
       return { error: "Cannot connect to Neon Database from live server. Please verify DATABASE_URL and sslmode=require." };
     }
-    return { error: error?.message ? `Login error: ${error.message}` : "A server error occurred during login. Please try again." };
+    return { error: msg ? `Login error: ${msg}` : "A server error occurred during login. Please try again." };
   }
 }
 
@@ -117,13 +118,14 @@ export async function registerAction(
     });
 
     return { success: true };
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Register action error:", error);
-    const msg = error?.message || "";
+    const err = error instanceof Error ? error : undefined;
+    const msg = err?.message || "";
     if (msg.includes("DATABASE_URL") || msg.includes("DIRECT_URL") || msg.includes("Environment variable not found")) {
       return { error: "Database configuration error: Missing DATABASE_URL or DIRECT_URL in Vercel Environment Variables." };
     }
-    return { error: error?.message ? `Registration failed: ${error.message}` : "Failed to create account. Please try again later." };
+    return { error: msg ? `Registration failed: ${msg}` : "Failed to create account. Please try again later." };
   }
 }
 
