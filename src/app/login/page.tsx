@@ -3,7 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { GraduationCap, Lock, Mail, ArrowRight, Shield, UserCheck, BookOpen } from "lucide-react";
+import { GraduationCap, Lock, Mail, ArrowRight } from "lucide-react";
 import { loginAction } from "@/actions/auth";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -48,13 +48,6 @@ function LoginForm() {
         }
       }
     });
-  };
-
-  const handleFillDemo = (demoEmail: string, demoPass: string) => {
-    setEmail(demoEmail);
-    setPassword(demoPass);
-    setError(null);
-    setFieldErrors({});
   };
 
   return (
@@ -128,46 +121,6 @@ function LoginForm() {
             </Button>
           </form>
 
-          {/* Quick Demo Credentials Selector */}
-          <div className="mt-6 pt-6 border-t border-slate-100 dark:border-slate-800">
-            <span className="text-xs font-semibold uppercase tracking-wider text-slate-400 block mb-3 text-center">
-              Quick Demo Auto-Fill
-            </span>
-            <div className="grid grid-cols-3 gap-2">
-              <Button
-                type="button"
-                variant="outline"
-                size="sm"
-                className="text-xs py-1.5 px-2 flex flex-col h-auto gap-0.5 border-slate-200"
-                onClick={() => handleFillDemo("admin@quizplatform.edu", "Admin@1234")}
-              >
-                <Shield className="h-3.5 w-3.5 text-red-500" />
-                <span className="font-semibold text-slate-700 dark:text-slate-300">Admin</span>
-              </Button>
-
-              <Button
-                type="button"
-                variant="outline"
-                size="sm"
-                className="text-xs py-1.5 px-2 flex flex-col h-auto gap-0.5 border-slate-200"
-                onClick={() => handleFillDemo("teacher1@quizplatform.edu", "Teacher@1234")}
-              >
-                <BookOpen className="h-3.5 w-3.5 text-amber-500" />
-                <span className="font-semibold text-slate-700 dark:text-slate-300">Teacher</span>
-              </Button>
-
-              <Button
-                type="button"
-                variant="outline"
-                size="sm"
-                className="text-xs py-1.5 px-2 flex flex-col h-auto gap-0.5 border-slate-200"
-                onClick={() => handleFillDemo("student1@quizplatform.edu", "Student@1234")}
-              >
-                <UserCheck className="h-3.5 w-3.5 text-blue-500" />
-                <span className="font-semibold text-slate-700 dark:text-slate-300">Student</span>
-              </Button>
-            </div>
-          </div>
         </CardContent>
         <CardFooter className="flex justify-center border-t border-slate-100 dark:border-slate-800 py-4 text-xs text-slate-500">
           Don&apos;t have an account yet?{" "}
