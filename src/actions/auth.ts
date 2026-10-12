@@ -54,9 +54,16 @@ export async function loginAction(
     });
 
     return { success: true };
-  } catch (error) {
+  } catch (error: any) {
     console.error("Login action error:", error);
-    return { error: "A server error occurred during login. Please try again." };
+    const msg = error?.message || "";
+    if (msg.includes("DATABASE_URL") || msg.includes("DIRECT_URL") || msg.includes("Environment variable not found")) {
+      return { error: "Database configuration error: Missing DATABASE_URL or DIRECT_URL in Vercel Environment Variables." };
+    }
+    if (msg.includes("Can't reach database server")) {
+      return { error: "Cannot connect to Neon Database from live server. Please verify DATABASE_URL and sslmode=require." };
+    }
+    return { error: error?.message ? `Login error: ${error.message}` : "A server error occurred during login. Please try again." };
   }
 }
 
@@ -110,9 +117,13 @@ export async function registerAction(
     });
 
     return { success: true };
-  } catch (error) {
+  } catch (error: any) {
     console.error("Register action error:", error);
-    return { error: "Failed to create account. Please try again later." };
+    const msg = error?.message || "";
+    if (msg.includes("DATABASE_URL") || msg.includes("DIRECT_URL") || msg.includes("Environment variable not found")) {
+      return { error: "Database configuration error: Missing DATABASE_URL or DIRECT_URL in Vercel Environment Variables." };
+    }
+    return { error: error?.message ? `Registration failed: ${error.message}` : "Failed to create account. Please try again later." };
   }
 }
 
