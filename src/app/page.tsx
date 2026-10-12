@@ -7,7 +7,6 @@ import {
   BarChart3,
   ShieldAlert,
   BookOpen,
-  Award,
   Users,
   Sparkles,
 } from "lucide-react";
@@ -47,34 +46,9 @@ export default function HomePage() {
                 </Link>
                 <Link href="/login">
                   <Button variant="outline" size="lg" className="shadow-sm">
-                    Sign In with Demo Accounts
+                    Sign In
                   </Button>
                 </Link>
-              </div>
-
-              {/* Quick Credentials Info Box */}
-              <div className="mt-8 rounded-xl border border-blue-200 bg-white/90 p-4 shadow-sm text-left dark:border-blue-900/40 dark:bg-slate-900/80 max-w-2xl mx-auto">
-                <div className="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400 mb-2 flex items-center gap-1.5">
-                  <Award className="h-4 w-4" />
-                  <span>Pre-Seeded Demo Credentials</span>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
-                  <div className="rounded-lg bg-slate-50 p-2 dark:bg-slate-800">
-                    <span className="font-semibold text-slate-800 dark:text-slate-200 block">Admin</span>
-                    <span className="text-slate-500 block truncate">admin@quizplatform.edu</span>
-                    <span className="text-slate-400 font-mono">Admin@1234</span>
-                  </div>
-                  <div className="rounded-lg bg-slate-50 p-2 dark:bg-slate-800">
-                    <span className="font-semibold text-slate-800 dark:text-slate-200 block">Teacher</span>
-                    <span className="text-slate-500 block truncate">teacher1@quizplatform.edu</span>
-                    <span className="text-slate-400 font-mono">Teacher@1234</span>
-                  </div>
-                  <div className="rounded-lg bg-slate-50 p-2 dark:bg-slate-800">
-                    <span className="font-semibold text-slate-800 dark:text-slate-200 block">Student</span>
-                    <span className="text-slate-500 block truncate">student1@quizplatform.edu</span>
-                    <span className="text-slate-400 font-mono">Student@1234</span>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
