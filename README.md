@@ -62,9 +62,9 @@ AcademiQuiz provides an academic examination ecosystem designed for colleges and
 
 ---
 
-## 4. Pre-Seeded Demo Credentials
+## 4. Default Testing Accounts
 
-The database seed script provides ready-to-use demo accounts for all roles:
+The database seed script provides standard accounts for development and testing:
 
 | Role | Name | Email | Password |
 | :--- | :--- | :--- | :--- |
@@ -74,8 +74,6 @@ The database seed script provides ready-to-use demo accounts for all roles:
 | **Student** | John Doe | `student1@quizplatform.edu` | `Student@1234` |
 | **Student** | Jane Smith | `student2@quizplatform.edu` | `Student@1234` |
 | **Student** | Alex Johnson | `student3@quizplatform.edu` | `Student@1234` |
-
-> **Tip:** The `/login` page features **Quick Demo Auto-Fill** buttons that populate these credentials with a single click.
 
 ---
 
@@ -97,7 +95,7 @@ online-quiz-platform/
 │   │   ├── questions.ts         # MCQ creation, updates, and total marks calculation
 │   │   └── quizzes.ts           # Quiz CRUD, publish validations
 │   ├── app/                     # App Router routes and pages
-│   │   ├── (auth)/login/        # Login page with quick demo buttons & Suspense
+│   │   ├── (auth)/login/        # User authentication sign-in page
 │   │   ├── (auth)/register/     # Student & Teacher registration
 │   │   ├── admin/               # Admin routes: dashboard, users, quizzes, results
 │   │   ├── teacher/             # Teacher routes: dashboard, quizzes, create, edit, questions, results
