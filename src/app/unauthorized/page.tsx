@@ -1,0 +1,51 @@
+import Link from "next/link";
+import { ShieldAlert, ArrowLeft, Home } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { getSession } from "@/lib/auth";
+
+export default async function UnauthorizedPage() {
+  const session = await getSession();
+
+  let dashboardUrl = "/login";
+  if (session?.role === "ADMIN") dashboardUrl = "/admin/dashboard";
+  else if (session?.role === "TEACHER") dashboardUrl = "/teacher/dashboard";
+  else if (session?.role === "STUDENT") dashboardUrl = "/student/dashboard";
+
+  return (
+    <div className="min-h-screen flex items-center justify-center p-4 bg-slate-50 dark:bg-slate-950">
+      <div className="max-w-md w-full text-center space-y-6 p-8 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-lg">
+        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-red-100 text-red-600 dark:bg-red-950 dark:text-red-300">
+          <ShieldAlert className="h-8 w-8" />
+        </div>
+
+        <div className="space-y-2">
+          <h1 className="text-2xl font-extrabold text-slate-900 dark:text-white">Access Denied</h1>
+          <p className="text-sm text-slate-500 dark:text-slate-400">
+            You do not have the required permissions to view this resource or perform this action.
+          </p>
+          {session && (
+            <p className="text-xs text-slate-400 font-mono mt-2">
+              Logged in as: {session.name} ({session.role})
+            </p>
+          )}
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
+          <Link href={dashboardUrl}>
+            <Button className="w-full gap-2">
+              <ArrowLeft className="h-4 w-4" />
+              <span>Back to Dashboard</span>
+            </Button>
+          </Link>
+          <Link href="/">
+            <Button variant="outline" className="w-full gap-2">
+              <Home className="h-4 w-4" />
+              <span>Landing Page</span>
+            </Button>
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
+
