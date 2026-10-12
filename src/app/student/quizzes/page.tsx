@@ -4,6 +4,8 @@ import { Role, QuizStatus } from "@prisma/client";
 import { DashboardHeader } from "@/components/navigation/DashboardHeader";
 import { StudentQuizBrowser } from "@/components/student/StudentQuizBrowser";
 
+export const dynamic = "force-dynamic";
+
 export default async function StudentQuizzesPage() {
   const session = await requireRole([Role.STUDENT, Role.ADMIN]);
 

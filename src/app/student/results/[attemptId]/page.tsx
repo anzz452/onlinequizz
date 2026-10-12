@@ -14,6 +14,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { formatScore, formatPercentage } from "@/lib/utils";
 
+export const dynamic = "force-dynamic";
+
 interface ResultsPageProps {
   params: {
     attemptId: string;

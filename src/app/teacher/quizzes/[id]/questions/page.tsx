@@ -5,6 +5,8 @@ import { notFound, redirect } from "next/navigation";
 import { DashboardHeader } from "@/components/navigation/DashboardHeader";
 import { QuestionBuilder } from "@/components/teacher/QuestionBuilder";
 
+export const dynamic = "force-dynamic";
+
 interface QuestionsPageProps {
   params: {
     id: string;

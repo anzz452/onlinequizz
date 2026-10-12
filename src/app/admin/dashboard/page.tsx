@@ -16,6 +16,8 @@ import { Badge } from "@/components/ui/badge";
 import { AnalyticsCharts } from "@/components/dashboard/AnalyticsCharts";
 import { formatScore, formatPercentage } from "@/lib/utils";
 
+export const dynamic = "force-dynamic";
+
 export default async function AdminDashboardPage() {
   const session = await requireRole([Role.ADMIN]);
 

@@ -7,6 +7,8 @@ import { DashboardHeader } from "@/components/navigation/DashboardHeader";
 import { Button } from "@/components/ui/button";
 import { TeacherQuizList } from "@/components/teacher/TeacherQuizList";
 
+export const dynamic = "force-dynamic";
+
 export default async function TeacherQuizzesPage() {
   const session = await requireRole([Role.TEACHER, Role.ADMIN]);
 

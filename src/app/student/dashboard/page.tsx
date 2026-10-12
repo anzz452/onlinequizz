@@ -15,6 +15,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { formatScore, formatPercentage, formatDuration } from "@/lib/utils";
 
+export const dynamic = "force-dynamic";
+
 export default async function StudentDashboardPage() {
   const session = await requireRole([Role.STUDENT, Role.ADMIN]);
 

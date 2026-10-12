@@ -5,6 +5,8 @@ import { notFound, redirect } from "next/navigation";
 import { DashboardHeader } from "@/components/navigation/DashboardHeader";
 import { QuizForm } from "@/components/teacher/QuizForm";
 
+export const dynamic = "force-dynamic";
+
 interface EditQuizPageProps {
   params: {
     id: string;

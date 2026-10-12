@@ -9,6 +9,8 @@ import { Button } from "@/components/ui/button";
 import { formatScore, formatPercentage } from "@/lib/utils";
 import { History, ArrowRight } from "lucide-react";
 
+export const dynamic = "force-dynamic";
+
 export default async function StudentHistoryPage() {
   const session = await requireRole([Role.STUDENT, Role.ADMIN]);
 

@@ -6,6 +6,8 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Mail, Calendar, BookOpen, Users } from "lucide-react";
 
+export const dynamic = "force-dynamic";
+
 export default async function TeacherProfilePage() {
   const session = await requireRole([Role.TEACHER, Role.ADMIN]);
 

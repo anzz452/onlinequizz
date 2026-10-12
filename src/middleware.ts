@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { jwtVerify } from "jose";
+import { jwtVerify } from "jose/jwt/verify";
 
 const COOKIE_NAME = "quiz_session";
 const SECRET_KEY = process.env.JWT_SECRET || "online-quiz-platform-secret-key-change-this-in-production-min-32-chars";

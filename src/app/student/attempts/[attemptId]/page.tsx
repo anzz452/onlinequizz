@@ -6,6 +6,8 @@ import { QuizTakingInterface } from "@/components/student/QuizTakingInterface";
 import { isAttemptExpired } from "@/lib/scoring";
 import { submitQuizAttemptAction } from "@/actions/attempts";
 
+export const dynamic = "force-dynamic";
+
 interface AttemptPageProps {
   params: {
     attemptId: string;

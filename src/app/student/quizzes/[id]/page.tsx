@@ -17,6 +17,8 @@ import { Button } from "@/components/ui/button";
 import { QuizDetailClient } from "@/components/student/QuizDetailClient";
 import { formatDuration, formatScore } from "@/lib/utils";
 
+export const dynamic = "force-dynamic";
+
 interface StudentQuizDetailPageProps {
   params: { id: string };
 }

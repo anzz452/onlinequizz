@@ -6,6 +6,8 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { formatScore, formatPercentage } from "@/lib/utils";
 
+export const dynamic = "force-dynamic";
+
 export default async function AdminResultsPage({
   searchParams,
 }: {

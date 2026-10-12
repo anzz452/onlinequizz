@@ -4,6 +4,8 @@ import { Role } from "@prisma/client";
 import { DashboardHeader } from "@/components/navigation/DashboardHeader";
 import { AdminUserManagement } from "@/components/admin/AdminUserManagement";
 
+export const dynamic = "force-dynamic";
+
 export default async function AdminUsersPage() {
   const session = await requireRole([Role.ADMIN]);
 

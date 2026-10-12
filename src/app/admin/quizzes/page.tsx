@@ -4,6 +4,8 @@ import { Role } from "@prisma/client";
 import { DashboardHeader } from "@/components/navigation/DashboardHeader";
 import { AdminQuizList } from "@/components/admin/AdminQuizList";
 
+export const dynamic = "force-dynamic";
+
 export default async function AdminQuizzesPage() {
   const session = await requireRole([Role.ADMIN]);
 
